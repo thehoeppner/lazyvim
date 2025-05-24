@@ -17,7 +17,20 @@ keymap("n", "K", "5k", opts)
 keymapdel("n", "<leader>bl")
 
 -- Buffer nach rechts verschieben
-vim.keymap.set("n", "<leader>bl", "<Cmd>BufferLineCycleNext<CR>", { desc = "Move Buffer Right" })
+keymap("n", "<leader>bl", "<Cmd>BufferLineCycleNext<CR>", { desc = "Move Buffer Right" })
 
 -- Buffer nach links verschieben
-vim.keymap.set("n", "<leader>bh", "<Cmd>BufferLineCyclePrev<CR>", { desc = "Move Buffer Left" })
+keymap("n", "<leader>bh", "<Cmd>BufferLineCyclePrev<CR>", { desc = "Move Buffer Left" })
+
+keymap("n", "<F5>", "<Cmd>lua require'dap'.continue()<CR>", opts)
+keymap("n", "<F6>", "<Cmd>lua require('neotest').run.run({strategy = 'dap'})<CR>", opts)
+keymap("n", "<F9>", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", opts)
+keymap("n", "<F10>", "<Cmd>lua require'dap'.step_over()<CR>", opts)
+keymap("n", "<F11>", "<Cmd>lua require'dap'.step_into()<CR>", opts)
+keymap("n", "<F8>", "<Cmd>lua require'dap'.step_out()<CR>", opts)
+keymap(
+  "n",
+  "<leader>dt",
+  "<Cmd>lua require('neotest').run.run({strategy = 'dap'})<CR>",
+  { noremap = true, silent = true, desc = "debug nearest test" }
+)
