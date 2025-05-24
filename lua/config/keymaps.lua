@@ -30,7 +30,7 @@ keymap("n", "<F11>", "<Cmd>lua require'dap'.step_into()<CR>", opts)
 keymap("n", "<F8>", "<Cmd>lua require'dap'.step_out()<CR>", opts)
 keymap(
   "n",
-  "<leader>dt",
+  "<leader>dn",
   "<Cmd>lua require('neotest').run.run({strategy = 'dap'})<CR>",
   { noremap = true, silent = true, desc = "debug nearest test" }
 )
